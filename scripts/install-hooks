@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Create hooks directory if it doesn't exist
+mkdir -p .git/hooks
+
+# Remove existing pre-commit hook if it exists
+rm -f .git/hooks/pre-commit
+
+# Create symbolic link to our pre-commit script
+ln -s ../../scripts/pre-commit .git/hooks/pre-commit
+
+# Make all scripts executable
+chmod +x scripts/pre-commit
+chmod +x scripts/check-imports.php
+
+echo "Git hooks installed successfully!"
